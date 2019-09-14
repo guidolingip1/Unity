@@ -3,12 +3,12 @@
 
 #### Sumário:
 
- 1. [Geral](#Geral)
+ 1. Geral
 	* 1.1 [Awake e FixedUpdate](#Awake-e-FixedUpdate)
 	* 1.2 [Propriedade Transform](#Propriedade-Transform)
 	* 1.3 [Projeções](#Projeções)
 	* 1.4 [Layers](#Layers)
- 2. [Movimento](#Movimento)
+2. [Movimento](#Movimento)
 
 [========]
 
@@ -33,3 +33,23 @@ Escrever sobre os layers depois
 ## <center>Movimento</center>
 - Adicionar propriedade **Rigidbody2D** ao elemento que vai ser movimentado.
 - Após isso para que o objeto não caia da tela, alteramos a propriedade **GravityScale** para 0.
+- Adicionar em **Awake()** a seguinte linha de código
+
+	    #Inicialização do meu Rigidbody2D
+	    rb = GetComponent<Rigidbody2D>();
+
+- Adicionar em **FixedUpdate()** a seguinte linha de código
+
+        float horizontal = Input.GetAxis("Horizontal");
+	    float vertical = Input.GetAxis("Vertical");
+    
+	    #Criação de um vetor 2d
+	    Vector2 vetor = new Vector2(horizontal, vertical);
+	    
+	    #Speed é um float para aumentar a velocidade
+	    rb.AddForce(vetor * speed);
+
+
+
+
+
